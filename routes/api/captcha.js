@@ -10,8 +10,10 @@ const ctcSession = new onnx.InferenceSession({ backendHint: "cpu" });
 captchaSession.loadModel("models/captcha_model.onnx").then(_ => console.log("captcha_model loaded"));
 ctcSession.loadModel("models/ctc_model.onnx").then(_ => console.log("ctc_model loaded"));
 
-router.get('/', wrap(async function (req, res) {
-    const response = await fetch('https://api.vk.com/captcha.php?sid=679196306792&s=1')
+router.post('/', wrap(async function (req, res) {
+
+    const captchaUrl = req.body.captcha_url
+    const response = await fetch(captchaUrl)
     const imageData = await response.buffer()
 
     const width = 128
@@ -47,9 +49,9 @@ router.get('/', wrap(async function (req, res) {
         .map((x, _) => codemap[x])
         .join("");
 
-    res.send(JSON.stringify({
+    res.json({
         captcha: captcha
-    }))
+    })
 }));
 
 module.exports = router;
