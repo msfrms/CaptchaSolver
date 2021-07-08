@@ -16,7 +16,7 @@ router.get('/', wrap(async function (req, res) {
     const channels = 4
 
     const resizeImageData = await sharp(imageData)
-        .resize(128, 64)
+        .resize(width, height)
         .ensureAlpha()
         .raw()
         .toBuffer();
