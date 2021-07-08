@@ -50,7 +50,7 @@ router.post('/', wrap(async function (req, res) {
         .join("");
 
     res.json({
-        captcha: captcha
+        code: captcha
     })
 }));
 
