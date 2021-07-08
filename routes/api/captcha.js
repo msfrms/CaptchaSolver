@@ -1,4 +1,7 @@
+const fetch = require('node-fetch');
+const onnx = require('onnxjs')
 var router = require('express').Router();
+const sharp = require('sharp');
 
 const wrap = fn => (...args) => fn(...args).catch(args[2])
 
