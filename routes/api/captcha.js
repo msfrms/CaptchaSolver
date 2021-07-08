@@ -17,6 +17,7 @@ router.get('/', wrap(async function (req, res) {
     const width = 128
     const height = 64
     const channels = 4
+    const codemap = " 24578acdehkmnpqsuvxyz";
 
     const resizeImageData = await sharp(imageData)
         .resize(width, height)
