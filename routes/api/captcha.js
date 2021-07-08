@@ -23,7 +23,29 @@ router.get('/', wrap(async function (req, res) {
 
     const imageInputData = Float32Array.from(resizeImageData);
 
-    res.send("need implemented")
+    const imageInputTensor = new onnx.Tensor(imageInputData, "float32", [
+        1,
+        width * height * channels
+    ]);
+
+    const captchaOutputTensor = (await captchaSession.run([imageInputTensor])).get("argmax");
+    captchaOutputTensor.type = "float32";
+    captchaOutputTensor.internalTensor.type = "float32";
+
+    const ctcOutputMap = await ctcSession.run([captchaOutputTensor]);
+    const ctcOutputData = ctcOutputMap.values().next().value.data;
+    const ctcOutputArray = Array.from(ctcOutputData.values())
+
+    const captcha = Array.from(captchaOutputTensor.data)
+        .filter(function (_, i) {
+            return ctcOutputArray[i] > 0;
+        })
+        .map((x, _) => codemap[x])
+        .join("");
+
+    res.send(JSON.stringify({
+        captcha: captcha
+    }))
 }));
 
 module.exports = router;
