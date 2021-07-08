@@ -12,12 +12,12 @@
     "url": "git+https://github.com/codesandbox-app/static-template.git"
   },
   "keywords": [],
-  "author": "Deasium",
+  "author": "msfrms",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/defasium/vkcaptchabreaker/issues"
+    "url": "https://github.com/msfrms/CaptchaSolver/issues"
   },
-  "homepage": "https://github.com/defasium/vkcaptchabreaker#readme",
+  "homepage": "https://github.com/msfrms/CaptchaSolver",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "serve": "^11.2.0"
