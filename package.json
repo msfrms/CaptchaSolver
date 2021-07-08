@@ -1,0 +1,32 @@
+{
+  "name": "captcha-solver",
+  "version": "0.0.1",
+  "description": "Recognize captcha",
+  "main": "app.js",
+  "scripts": {
+    "start": "babel-node ./app.js",
+    "build": "echo This is a static template, there is no bundler or bundling involved!"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codesandbox-app/static-template.git"
+  },
+  "keywords": [],
+  "author": "Deasium",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/defasium/vkcaptchabreaker/issues"
+  },
+  "homepage": "https://github.com/defasium/vkcaptchabreaker#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "serve": "^11.2.0"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "onnxjs": "^0.1.8",
+    "sharp": "^0.28.3"
+  }
+}
